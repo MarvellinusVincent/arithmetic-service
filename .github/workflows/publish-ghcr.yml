@@ -15,5 +15,10 @@ jobs:
             - name: Build and push the image
               run: |
                 docker login --username marvellinusvincent --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-                docker build -t ghcr.io/marvellinusvincent/arithmetic-service:latest --file Dockerfile .  
-                docker push ghcr.io/marvellinusvincent/arithmetic-service:latest 
+                docker build -t ghcr.io/marvellinusvincent/arithmetic-service:l--file Dockerfile .  
+                docker push ghcr.io/marvellinusvincent/arithmetic-service:l
+            - name: Publish the image to azure container registry
+              run: |
+                docker login --username prac15 --password ${{secrets.AZURE_CONTAINER_REGISTRY}} prac15.azurecr.io
+                docker tag ghcr.io/marvellinusvincent/arithmetic-service:latest   prac15.azurecr.io/arithmetic-service:l
+                docker push prac15.azurecr.io/arithmetic-service:l
