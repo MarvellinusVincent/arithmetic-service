@@ -19,6 +19,6 @@ jobs:
                 docker push ghcr.io/marvellinusvincent/arithmetic-service:l
             - name: Publish the image to azure container registry
               run: |
-                docker login --username prac15 --password ${{secrets.AZURE_CONTAINER_REGISTRY}} prac15.azurecr.io
-                docker tag ghcr.io/marvellinusvincent/arithmetic-service:latest   prac15.azurecr.io/arithmetic-service:l
-                docker push prac15.azurecr.io/arithmetic-service:l
+                docker login --username practicum16Marvell --password ${{secrets.AZURE_CONTAINER_REGISTRY}} practicum16Marvell.azurecr.io
+                docker tag ghcr.io/marvellinusvincent/arithmetic-service:latest   practicum16Marvell.azurecr.io/arithmetic-service:l
+                docker push practicum16Marvell.azurecr.io/arithmetic-service:l
